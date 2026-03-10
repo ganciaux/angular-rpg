@@ -59,7 +59,12 @@ Les règles de l'IA sont décrites dans `AI_GAME_MASTER_PROMPT.md`:
 
 [AI Game Master Prompt](https://raw.githubusercontent.com/ganciaux/angular-rpg/refs/heads/main/docs/AI_GAME_MASTER_PROMPT.md)  
 
-**Toute IA doit lire ce fichier et les fichiers sources avant de proposer une mission.**
+
+Les règles du jeux sont décrites dans `GAME_RULES.md`:  
+
+[Game Rules](https://raw.githubusercontent.com/ganciaux/angular-rpg/refs/heads/main/docs/GAME_RULES.md)  
+
+**Toute IA doit lire ces fichiers et les fichiers sources avant de proposer une mission.**
 
 ---
 
