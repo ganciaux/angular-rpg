@@ -1,59 +1,95 @@
-# AngularRpg
+# Angular RPG Learning
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.4.
+Apprendre Angular en construisant un mini RPG.
 
-## Development server
+Ce projet utilise un système de **quêtes** pour apprendre progressivement Angular.
 
-To start a local development server, run:
+Chaque quête :
+- introduit un concept Angular
+- correspond à un commit git
+- donne de l'XP
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+# 🎮 Progression
 
-## Code scaffolding
+Niveau Angular : 0  
+XP : 0 / 100  
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Compétences
 
-```bash
-ng generate component component-name
-```
+| Skill | Statut |
+|------|------|
+| Components | ⬜ |
+| Templates | ⬜ |
+| Data binding | ⬜ |
+| Events | ⬜ |
+| Signals | ⬜ |
+| Services | ⬜ |
+| Dependency Injection | ⬜ |
+| Routing | ⬜ |
+| RxJS | ⬜ |
+| HTTP | ⬜ |
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+# 🧭 Mission actuelle
 
-## Building
+Voir `PROGRESS.md`  
 
-To build the project run:
+[PROGRESS](https://raw.githubusercontent.com/ganciaux/angular-rpg/refs/heads/main/PROGRESS.md)  
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+# 🗺 Roadmap
 
-## Running unit tests
+Voir `ROADMAP.md`  
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+[Roadmap](https://raw.githubusercontent.com/ganciaux/angular-rpg/refs/heads/main/ROADMAP.md)
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+# 🤖 IA Game Master
 
-For end-to-end (e2e) testing, run:
+Les règles de l'IA sont décrites dans `AI_GAME_MASTER_PROMPT.md`:  
 
-```bash
-ng e2e
-```
+[AI Game Master Prompt](https://raw.githubusercontent.com/ganciaux/angular-rpg/refs/heads/main/docs/AI_GAME_MASTER_PROMPT.md)  
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+**Toute IA doit lire ce fichier et les fichiers sources avant de proposer une mission.**
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+# 🧑‍💻 Règles Git
+
+1 mission = 1 commit
+
+Format : 
+
+type(scope): message
+
+Exemples :
+
+feat(hero): create hero component  
+feat(combat): add goblin attack  
+feat(signals): convert hero hp to signal  
+
+---
+
+# 📊 Progression joueur
+
+Voir `PROGRESS.md`  
+
+[PROGRESS](https://raw.githubusercontent.com/ganciaux/angular-rpg/refs/heads/main/PROGRESS.md)  
+
+Ce fichier est la **source de vérité** de la progression.
+
+---
+
+## 📂 Fichiers sources pour l’IA
+
+L’IA peut utiliser les fichiers suivants pour suivre ma progression et générer les missions :
+
+- [AI Game Master Prompt](https://raw.githubusercontent.com/ganciaux/angular-rpg/refs/heads/main/docs/AI_GAME_MASTER_PROMPT.md)  
+- [Game Rules](https://raw.githubusercontent.com/ganciaux/angular-rpg/refs/heads/main/docs/GAME_RULES.md)  
+- [Progress](https://raw.githubusercontent.com/ganciaux/angular-rpg/refs/heads/main/PROGRESS.md)  
+- [Roadmap](https://raw.githubusercontent.com/ganciaux/angular-rpg/refs/heads/main/ROADMAP.md)
