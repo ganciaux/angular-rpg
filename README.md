@@ -1,5 +1,5 @@
 [![CI](https://github.com/ganciaux/angular-rpg/actions/workflows/ci.yml/badge.svg)](https://github.com/ganciaux/angular-rpg/actions/workflows/ci.yml)
-[![CD](https://github.com/ganciaux/angular-rpg/actions/workflows/cd.yml/badge.svg)](https://github.com/ganciaux/angular-rpg/actions/workflows/cd.yml)
+[![CD](https://github.com/ganciaux/angular-rpg/actions/workflows/deploy.yml/badge.svg)](https://github.com/ganciaux/angular-rpg/actions/workflows/deploy.yml)
 [![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://ganciaux.github.io/angular-rpg/)
 
 # Angular RPG Learning
