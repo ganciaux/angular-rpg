@@ -1,4 +1,18 @@
 <h1>Hero</h1>
 <p>Name: {{ hero().name}}</p>
-<p>HP: {{ hero().hp}}</p>
-<p>Level: {{ hero().level}}</p>
+<p>HP: 
+    @if (hero().hp <= 0){
+    💀 Héros mort
+    } @else {
+        {{ hero().hp }}
+    }
+</p>
+
+<p>Level: {{ hero().level }}</p>
+
+<p>Stats:</p>
+<ul>
+    @for(stat of hero().stats; track stat.label){
+        <li>{{ stat.label }}: {{ stat.value }}</li>
+    }
+</ul>
