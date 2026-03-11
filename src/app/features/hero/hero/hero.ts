@@ -8,7 +8,7 @@ import { Hero } from '../models/hero';
   styleUrl: './hero.css',
 })
 export class HeroComponent {
- hero = signal<Hero>({
+ readonly hero = signal<Hero>({
    id: 1,
    name: 'Hero',
    hp: 100,
