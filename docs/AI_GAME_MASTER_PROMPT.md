@@ -33,6 +33,11 @@ Ces fichiers contiennent :
 
 Ils sont la **source de vérité de la progression**.
 
+Tu dois aussi lire :
+docs/CONVENTIONS.md
+
+Ce fichier contient les règles de code à respecter et à faire respecter lors du code review.
+
 Si une conversation est interrompue, tu dois relire ces fichiers pour reprendre.
 
 ---

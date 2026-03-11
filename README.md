@@ -102,3 +102,4 @@ L’IA peut utiliser les fichiers suivants pour suivre ma progression et génér
 - [Game Rules](https://raw.githubusercontent.com/ganciaux/angular-rpg/refs/heads/main/docs/GAME_RULES.md)  
 - [Progress](https://raw.githubusercontent.com/ganciaux/angular-rpg/refs/heads/main/PROGRESS.md)  
 - [Roadmap](https://raw.githubusercontent.com/ganciaux/angular-rpg/refs/heads/main/ROADMAP.md)
+- [Conventions](https://raw.githubusercontent.com/ganciaux/angular-rpg/refs/heads/main/docs/CONVENTIONS.md)
