@@ -1,18 +1,18 @@
 # Player Progress
 
-XP : 0
+XP : 10 / 100
 
 ## Niveau actuel
 
-1
+2
 
 ## Niveaux terminés
 
-Aucun
+1
 
 ## Niveau en cours
 
-Niveau 1 — Hero Component
+Niveau 2 — Template affichage stats
 
 ## Boss battus
 
@@ -20,4 +20,4 @@ Aucun
 
 ## Dernière mission validée
 
-Aucune
+Niveau 1 — Hero Component
