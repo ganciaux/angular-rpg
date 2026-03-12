@@ -4,17 +4,12 @@
 <p>Edit: <input (input)="updateName($event)" [value]="heroData.name"/></p>
 <p>Name: {{ heroData.name }}</p>
 <p>
-  HP:
-  @if (heroData.hp <= 0) {
-    💀 Héros mort
-  } @else {
-    {{ heroData.hp }}
-  }
+  HP: {{ heroData.hp }} {{ status() }}
 </p>
 <button (click)="updateHp(-10)">Take Damage</button>
 <button (click)="updateHp(10)">Heal</button>
 <div class="hp-bar">
-  <div class="hp-bar-fill" [class.danger]="heroData.hp < 30" [style.width.%]="(heroData.hp / maxHp) * 100"></div>
+  <div class="hp-bar-fill" [class.danger]="heroData.hp < 30" [style.width.%]="hpPercent()"></div>
 </div>
 
 <p>Level: {{ heroData.level }}</p>
