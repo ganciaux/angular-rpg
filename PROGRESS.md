@@ -1,18 +1,18 @@
 # Player Progress
 
-XP : 30 / 100
+XP : 40 / 100
 
 ## Niveau actuel
 
-4
+5
 
 ## Niveaux terminés
 
-1, 2, 3
+1, 2, 3, 4
 
 ## Niveau en cours
 
-Niveau 4 — Events
+Niveau 5 — Signals
 
 ## Boss battus
 
@@ -20,4 +20,4 @@ Aucun
 
 ## Dernière mission validée
 
-Niveau 3 — Data Binding
+Niveau 4 — Events
