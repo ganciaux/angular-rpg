@@ -1,16 +1,16 @@
 @let heroData = hero();
 
 <h1>Hero</h1>
-<p>Name: {{ hero().name}}</p>
+<p>Name: {{ heroData.name}}</p>
 <p>HP: 
-    @if (hero().hp <= 0){
+    @if (heroData.hp <= 0){
     💀 Héros mort
     } @else {
-        {{ hero().hp }}
+        {{ heroData.hp }}
     }
 </p>
 
-<p>Level: {{ hero().level }}</p>
+<p>Level: {{ heroData.level }}</p>
 
 <p>Stats:</p>
 <ul>
