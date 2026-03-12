@@ -1,23 +1,17 @@
-# Player Progress
-
-XP : 40 / 100
+XP : 50 / 100
 
 ## Niveau actuel
 
-5
+6
 
 ## Niveaux terminés
 
-1, 2, 3, 4
+1, 2, 3, 4, 5
 
 ## Niveau en cours
 
-Niveau 5 — Signals
-
-## Boss battus
-
-Aucun
+Niveau 6 — Services
 
 ## Dernière mission validée
 
-Niveau 4 — Events
+Niveau 5 — Signals

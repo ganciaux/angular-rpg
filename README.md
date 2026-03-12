@@ -17,8 +17,8 @@ Chaque quête :
 
 # 🎮 Progression
 
-Niveau Angular : 0  
-XP : 40 / 100  
+Niveau Angular : 5  
+XP : 50 / 100  
 
 ## Compétences
 
@@ -28,7 +28,7 @@ XP : 40 / 100
 | Templates | ✔ |
 | Data binding | ✔ |
 | Events | ✔ |
-| Signals | ⬜ |
+| Signals | ✔ |
 | Services | ⬜ |
 | Dependency Injection | ⬜ |
 | Routing | ⬜ |
