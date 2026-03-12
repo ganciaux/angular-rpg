@@ -1,20 +1,25 @@
 @let heroData = hero();
 
 <h1>Hero</h1>
-<p>Name: {{ heroData.name}}</p>
-<p>HP: 
-    @if (heroData.hp <= 0){
+<p>Edit: <input [(ngModel)]="heroData.name" /></p>
+<p>Name: {{ heroData.name }}</p>
+<p>
+  HP:
+  @if (heroData.hp <= 0) {
     💀 Héros mort
-    } @else {
-        {{ heroData.hp }}
-    }
+  } @else {
+    {{ heroData.hp }}
+  }
 </p>
+<div class="hp-bar">
+  <div class="hp-bar-fill" [class.danger]="heroData.hp < 30" [style.width.%]="(heroData.hp / maxHp) * 100"></div>
+</div>
 
 <p>Level: {{ heroData.level }}</p>
 
 <p>Stats:</p>
 <ul>
-    @for(stat of statList; track stat){
-        <li>{{ stat }}: {{ heroData.stats[stat] }}</li>
-    }
+  @for (stat of statList; track stat) {
+    <li>{{ stat }}: {{ heroData.stats[stat] }}</li>
+  }
 </ul>

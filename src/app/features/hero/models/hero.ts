@@ -19,6 +19,7 @@ export const HERO_STAT_LIST = Object.values(HeroStatLabel) as HeroStatLabel[];
 export const HERO_INITIAL_HP = 100;
 export const HERO_INITIAL_LEVEL = 1;
 export const HERO_INITIAL_NAME = 'Hero';
+export const HERO_MAX_HP = 100;
 
 export const HERO_INITIAL_STATS: HeroStats = {
   Strength: 10,

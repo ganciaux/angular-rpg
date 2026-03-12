@@ -1,13 +1,15 @@
 import { Component, signal } from '@angular/core';
-import { createHero, Hero, HERO_STAT_LIST } from '../models/hero';
+import { createHero, Hero, HERO_MAX_HP, HERO_STAT_LIST } from '../models/hero';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-hero',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './hero.html',
   styleUrl: './hero.css',
 })
 export class HeroComponent {
   readonly statList = HERO_STAT_LIST;
-  readonly hero = signal<Hero>(createHero());
+  readonly maxHp = HERO_MAX_HP;
+  readonly hero = signal<Hero>(createHero({hp: 10}));
 }
