@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { createHero, Hero } from '../models/hero';
+import { createHero, Hero, HERO_STAT_LIST } from '../models/hero';
 
 @Component({
   selector: 'app-hero',
@@ -8,5 +8,6 @@ import { createHero, Hero } from '../models/hero';
   styleUrl: './hero.css',
 })
 export class HeroComponent {
+  readonly statList = HERO_STAT_LIST;
   readonly hero = signal<Hero>(createHero());
 }

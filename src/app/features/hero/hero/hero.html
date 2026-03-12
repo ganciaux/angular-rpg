@@ -1,3 +1,5 @@
+@let heroData = hero();
+
 <h1>Hero</h1>
 <p>Name: {{ hero().name}}</p>
 <p>HP: 
@@ -12,7 +14,7 @@
 
 <p>Stats:</p>
 <ul>
-    @for(stat of hero().stats; track stat.label){
-        <li>{{ stat.label }}: {{ stat.value }}</li>
+    @for(stat of statList; track stat){
+        <li>{{ stat }}: {{ heroData.stats[stat] }}</li>
     }
 </ul>

@@ -5,9 +5,7 @@ import {
   HERO_INITIAL_HP,
   HERO_INITIAL_LEVEL,
   HERO_INITIAL_NAME,
-  HERO_INITIAL_STATS_STRENGTH,
-  HERO_INITIAL_STATS_AGILITY,
-  HERO_INITIAL_STATS_INTELLIGENCE,
+  HERO_INITIAL_STATS,
 } from '../models/hero';
 
 describe('HeroComponent', () => {
@@ -28,11 +26,7 @@ describe('HeroComponent', () => {
     expect(component.hero().name).toEqual(HERO_INITIAL_NAME);
     expect(component.hero().hp).toEqual(HERO_INITIAL_HP);
     expect(component.hero().level).toEqual(HERO_INITIAL_LEVEL);
-    expect(component.hero().stats).toEqual([
-      { label: HeroStatLabel.Strength, value: HERO_INITIAL_STATS_STRENGTH },
-      { label: HeroStatLabel.Agility, value: HERO_INITIAL_STATS_AGILITY },
-      { label: HeroStatLabel.Intelligence, value: HERO_INITIAL_STATS_INTELLIGENCE },
-    ]);
+    expect(component.hero().stats).toEqual({ ...HERO_INITIAL_STATS });
   });
 
   it('should display dead message when hp is 0', () => {
