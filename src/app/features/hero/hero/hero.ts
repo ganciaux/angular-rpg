@@ -12,4 +12,20 @@ export class HeroComponent {
   readonly statList = HERO_STAT_LIST;
   readonly maxHp = HERO_MAX_HP;
   readonly hero = signal<Hero>(createHero({hp: 10}));
+
+  updateHp(amount: number) {
+    this.hero.update(hero => ({
+      ...hero,
+      hp: Math.min(Math.max(hero.hp + amount, 0), this.maxHp)
+    }));
+  }
+
+  updateName(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.hero.update(hero => ({
+      ...hero,
+      name: input.value
+    }));
+  }
+
 }
