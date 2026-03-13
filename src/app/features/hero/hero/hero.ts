@@ -104,22 +104,24 @@ export class HeroComponent {
     this.history.set([]);
   }
 
+  private calculateDamage(attack: number): { damage: number, isCrit: boolean } {
+    const isCrit = Math.random() < 0.1;
+    const damage = Math.floor(Math.random() * (attack + 1)) * (isCrit ? 2 : 1);
+    return { damage, isCrit };
+  }
+
   attack() {
     const currentHero = this.hero();
     const currentEnemy = this.enemy();
-    let damage = Math.floor(Math.random() * (currentHero.attack + 1));
-    let isCrit = Math.random() < 0.1;
-    let finalDamage = isCrit ? damage * 2 : damage;
-
-    this.history.update(hist => [...hist, `You dealt ${finalDamage} damage${isCrit ? ' (CRITICAL HIT!)' : ''}.`]);  
-    this.enemyTakeDamage(finalDamage);
+    const heroAttack = this.calculateDamage(currentHero.attack);
+    
+    this.history.update(hist => [...hist, `You dealt ${heroAttack.damage} damage${heroAttack.isCrit ? ' (CRITICAL HIT!)' : ''}.`]);  
+    this.enemyTakeDamage(heroAttack.damage);
 
     if (this.enemy().hp>0){
-      damage = Math.floor(Math.random() * (currentEnemy.attack + 1));
-      isCrit = Math.random() < 0.1;
-      finalDamage = isCrit ? damage * 2 : damage;
-      this.updateHp(-finalDamage);
-      this.history.update(hist => [...hist, `Enemy dealt ${finalDamage} damage${isCrit ? ' (CRITICAL HIT!)' : ''}.`]);  
+      const enemyAttack = this.calculateDamage(currentEnemy.attack);
+      this.updateHp(-enemyAttack.damage);
+      this.history.update(hist => [...hist, `Enemy dealt ${enemyAttack.damage} damage${enemyAttack.isCrit ? ' (CRITICAL HIT!)' : ''}.`]);  
     } 
     else{
       this.gameStatus.set(GameStatus.VICTORY);
