@@ -1,17 +1,17 @@
-@let heroData = hero();
-@let enemyData = enemy();
-@let gmStatus = gameStatus();
+@let heroData = heroService.hero();
+@let enemyData = gameService.enemy();
+@let gmStatus = gameService.gameStatus();
 
 <h1>Hero</h1>
 <p>Edit: <input (input)="updateName($event)" [value]="heroData.name" /></p>
 <p>Name: {{ heroData.name }}</p>
 <p>Level: {{ heroData.level }}</p>
-<p>HP: {{ heroData.hp }} / {{ heroData.hpMax }} {{ heroStatus() }} </p>
+<p>HP: {{ heroData.hp }} / {{ heroData.hpMax }} {{ heroService.heroStatus() }} </p>
 <p>Attack: {{ heroData.attack }}</p>
-<button (click)="updateHp(-10)">Take Damage</button>
-<button (click)="updateHp(10)">Heal</button>
+<button (click)="heroService.updateHp(-10)">Take Damage</button>
+<button (click)="heroService.updateHp(10)">Heal</button>
 <div class="hp-bar">
-  <div class="hp-bar-fill" [class.danger]="hpPercent() < 30" [style.width.%]="hpPercent()"></div>
+  <div class="hp-bar-fill" [class.danger]="heroService.hpPercent() < 30" [style.width.%]="heroService.hpPercent()"></div>
 </div>
 <p>Stats:</p>
 <ul>
@@ -25,42 +25,42 @@
 <p>
   Game: {{ gameStatusLabel[gmStatus] }}
   @switch (gmStatus) {
-    @case (gameStatusEnum.STOP) {
-      <button (click)="startGame()">Start</button>
+    @case (gameStatus.STOP) {
+      <button (click)="gameService.startGame()">Start</button>
     }
-    @case (gameStatusEnum.PLAYING) {
-      <button (click)="stopGame()">Stop</button>
+    @case (gameStatus.PLAYING) {
+      <button (click)="gameService.stopGame()">Stop</button>
     }
-    @case (gameStatusEnum.VICTORY) {
-      <button (click)="nextLevel()">Next</button>
-      <button (click)="restartGame()">Restart</button>
-      <button (click)="stopGame()">Stop</button>
+    @case (gameStatus.VICTORY) {
+      <button (click)="gameService.nextLevel()">Next</button>
+      <button (click)="gameService.restartGame()">Restart</button>
+      <button (click)="gameService.stopGame()">Stop</button>
     }
-    @case (gameStatusEnum.GAME_OVER) {
-      <button (click)="restartGame()">Restart</button>
-      <button (click)="stopGame()">Stop</button>
+    @case (gameStatus.GAME_OVER) {
+      <button (click)="gameService.restartGame()">Restart</button>
+      <button (click)="gameService.stopGame()">Stop</button>
     }
     @default {
       <span>ERROR: Invalid Game Status !</span>
     }
   }
 </p>
-<p>Enemies defeated: {{ enemiesDefeated() }}</p>
-@if (gmStatus !== gameStatusEnum.STOP) {
+<p>Enemies defeated: {{ gameService.enemiesDefeated() }}</p>
+@if (gmStatus !== gameStatus.STOP) {
   <h1>Enemy</h1>
   <p>Name: {{ enemyData.name }}</p>
-  <p>HP: {{ enemyData.hp }} {{ enemyStatus() }}</p>
+  <p>HP: {{ enemyData.hp }} {{ gameService.enemyStatus() }}</p>
   <p>Attack: {{ enemyData.attack }}</p>
 
-  @if (gmStatus === gameStatusEnum.PLAYING && heroData.hp > 0) {
-    <button (click)="attack()">Attack</button>
+  @if (gmStatus === gameStatus.PLAYING && heroData.hp > 0) {
+    <button (click)="gameService.attack()">Attack</button>
   }
 
   <div class="hp-bar">
     <div
       class="hp-bar-fill"
-      [class.danger]="enemyHpPercent() < 30"
-      [style.width.%]="enemyHpPercent()"
+      [class.danger]="gameService.enemyHpPercent() < 30"
+      [style.width.%]="gameService.enemyHpPercent()"
     ></div>
   </div>
 <br />
@@ -68,7 +68,7 @@
 <br />
   <h2>Battle Log</h2>
   <ul>  
-    @for (entry of history(); track $index) {
+    @for (entry of gameService.history(); track $index) {
       <li>{{ entry }}</li>
     } 
   </ul>
