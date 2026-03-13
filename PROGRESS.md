@@ -1,17 +1,13 @@
-XP : 50 / 100
-
-## Niveau actuel
-
-6
+XP : 75 / 100
 
 ## Niveaux terminés
 
 1, 2, 3, 4, 5
 
-## Niveau en cours
+## Boss battus
 
-Niveau 6 — Services
+Gobelin ⚔️
 
 ## Dernière mission validée
 
-Niveau 5 — Signals
+Boss — Gobelin
