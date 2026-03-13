@@ -5,16 +5,14 @@
 <h1>Hero</h1>
 <p>Edit: <input (input)="updateName($event)" [value]="heroData.name" /></p>
 <p>Name: {{ heroData.name }}</p>
-<p>HP: {{ heroData.hp }} {{ heroStatus() }}</p>
-
+<p>Level: {{ heroData.level }}</p>
+<p>HP: {{ heroData.hp }} / {{ heroData.hpMax }} {{ heroStatus() }} </p>
+<p>Attack: {{ heroData.attack }}</p>
 <button (click)="updateHp(-10)">Take Damage</button>
 <button (click)="updateHp(10)">Heal</button>
 <div class="hp-bar">
   <div class="hp-bar-fill" [class.danger]="heroData.hp < 30" [style.width.%]="hpPercent()"></div>
 </div>
-
-<p>Level: {{ heroData.level }}</p>
-
 <p>Stats:</p>
 <ul>
   @for (stat of statList; track stat) {
@@ -47,13 +45,15 @@
     }
   }
 </p>
+<p>Enemies defeated: {{ enemiesDefeated() }}</p>
 @if (gmStatus === gameStatusEnum.STOP) {
 } @else {
   <h1>Enemy</h1>
   <p>Name: {{ enemyData.name }}</p>
   <p>HP: {{ enemyData.hp }} {{ enemyStatus() }}</p>
+  <p>Attack: {{ enemyData.attack }}</p>
 
-  @if (gmStatus === gameStatusEnum.PLAYING){
+  @if (gmStatus === gameStatusEnum.PLAYING && heroData.hp > 0) {
     <button (click)="attack()">Attack</button>
   }
 
@@ -64,4 +64,13 @@
       [style.width.%]="enemyHpPercent()"
     ></div>
   </div>
+<br />
+<hr />
+<br />
+  <h2>Battle Log</h2>
+  <ul>  
+    @for (entry of history(); track entry) {
+      <li>{{ entry }}</li>
+    } 
+  </ul>
 }

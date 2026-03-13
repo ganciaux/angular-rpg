@@ -16,6 +16,7 @@ export interface Hero {
   id: string;
   name: string;
   hp: number;
+  hpMax: number;
   level: number;
   attack: number;
   stats: HeroStats;
@@ -25,7 +26,7 @@ export interface Enemy {
   id: string;
   name: string;
   hp: number;
-  hpMax?: number;
+  hpMax: number;
   attack: number;
 }
 
@@ -56,6 +57,7 @@ export function createHero(partial?: Partial<Hero>): Hero {
     id: crypto.randomUUID(),
     name: HERO_INITIAL_NAME,
     hp: HERO_INITIAL_HP,
+    hpMax: HERO_MAX_HP,
     level: HERO_INITIAL_LEVEL,
     attack: HERO_INITIAL_ATTACK,
     stats: { ...HERO_INITIAL_STATS },
@@ -74,11 +76,11 @@ export function createEnemy(partial?: Partial<Enemy>): Enemy {
   };
 }
 
-export function createGoblin(): Enemy {
+export function createGoblin(scaling: number=0): Enemy {
   return createEnemy({
-    name: 'Goblin',
-    hp: 30,
-    hpMax: 30,
-    attack: 5,
+    name: 'Gobelin',
+    hp: 50 + scaling * 10,
+    hpMax: 50 + scaling * 10,
+    attack: 8 + scaling * 2
   });
 }
