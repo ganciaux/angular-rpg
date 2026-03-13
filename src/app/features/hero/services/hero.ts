@@ -1,10 +1,13 @@
-import { computed, effect, Injectable, signal } from '@angular/core';
+import { computed, effect, inject, Injectable, signal } from '@angular/core';
 import { createHero, Hero } from '../models/hero';
+import { LoggerService } from '../../../shared/services/logger';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HeroService {
+  private readonly loggerService = inject(LoggerService)
+
   readonly hero = signal<Hero>(createHero({hp: 10}));
   
   readonly hpPercent = computed(() => {
@@ -16,7 +19,7 @@ export class HeroService {
   });
 
   constructor() {
-    effect(() => console.log('HP changed:', this.hero().hp));
+    effect(() => this.loggerService.log(`HP changed: ${this.hero().hp}`));
   }
 
   getHpStatus(hp:number, hpMax:number): string {
