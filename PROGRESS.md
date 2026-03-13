@@ -1,13 +1,23 @@
-XP : 85 / 100
+# Player Progress
+
+XP : 95 / 100
+
+## Niveau actuel
+
+8
 
 ## Niveaux terminés
 
-1, 2, 3, 4, 5, 6
+1, 2, 3, 4, 5, 6, 7
 
 ## Niveau en cours
 
-Niveau 7 — Dependency Injection
+Niveau 8 — Inventaire avec signals
+
+## Boss battus
+
+Gobelin ⚔️
 
 ## Dernière mission validée
 
-Niveau 6 — Services
+Niveau 7 — Dependency Injection

@@ -18,7 +18,7 @@ Chaque quête :
 # 🎮 Progression
 
 Niveau Angular : 5  
-XP : 85 / 100  
+XP : 95 / 100  
 
 ## Compétences
 
@@ -30,7 +30,7 @@ XP : 85 / 100
 | Events | ✔ |
 | Signals | ✔ |
 | Services | ✔ |
-| Dependency Injection | ⬜ |
+| Dependency Injection | ✔ |
 | Routing | ⬜ |
 | RxJS | ⬜ |
 | HTTP | ⬜ |
