@@ -20,25 +20,31 @@ export class HeroComponent {
     return (this.hero().hp / this.hero().hpMax) * 100;
   })
   readonly heroStatus = computed(() => {
-    if (this.hero().hp === 0) {
-      return '💀 Dead';
-    } else if (this.hero().hp < this.hero().hpMax * 0.3) {
-      return '💥 Critical';
-    } else if (this.hero().hp < this.hero().hpMax * 0.7) {
-      return '🤕 Injured';
-    } else {
-      return '💪 Healthy';
-    }
+    return this.getHpStatus(this.hero().hp, this.hero().hpMax);
   });
-  readonly enemyStatus = computed(() => {return '';});
+  readonly enemyStatus = computed(() => {
+    return this.getHpStatus(this.enemy().hp, this.enemy().hpMax!);
+  });
   readonly enemyHpPercent = computed(() => {
     return (this.enemy().hp / this.enemy().hpMax!) * 100;
   })
 
-  gameStatus = signal<GameStatus>(GameStatus.STOP);
+  readonly gameStatus = signal<GameStatus>(GameStatus.STOP);
 
   constructor() {
     effect(() => console.log('HP changed:', this.hero().hp));
+  }
+
+  getHpStatus(hp:number, hpMax:number): string {
+    if (hp === 0) {
+      return '💀 Dead';
+    } else if (hp < hpMax * 0.3) {
+      return '💥 Critical';
+    } else if (hp < hpMax * 0.7) {
+      return '🤕 Injured';
+    } else {
+      return '💪 Healthy';
+    }
   }
 
   updateHp(amount: number) {
@@ -85,18 +91,14 @@ export class HeroComponent {
   }
 
   restartGame() {
-    this.enemiesDefeated.set(0);
-    this.hero.set(createHero());
-    this.enemy.set(createGoblin(this.enemiesDefeated()));
-    this.gameStatus.set(GameStatus.PLAYING);
-    this.history.set([]);
+    this.startGame();
   }
 
   nextLevel() {
     let currentHero = this.hero();
     this.enemiesDefeated.update(count => count + 1);
     this.enemy.set(createGoblin(this.enemiesDefeated()));
-    this.updateHp(currentHero.hp + (this.hero().hpMax - currentHero.hp) / 2);
+    this.updateHp((this.hero().hpMax - currentHero.hp) / 2);
     this.updateLevel(1);
     this.gameStatus.set(GameStatus.PLAYING);
     this.history.set([]);

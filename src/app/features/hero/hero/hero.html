@@ -69,7 +69,7 @@
 <br />
   <h2>Battle Log</h2>
   <ul>  
-    @for (entry of history(); track entry) {
+    @for (entry of history(); track $index) {
       <li>{{ entry }}</li>
     } 
   </ul>
