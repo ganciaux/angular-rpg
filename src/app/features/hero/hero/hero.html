@@ -1,6 +1,7 @@
 @let heroData = heroService.hero();
 @let enemyData = gameService.enemy();
 @let gmStatus = gameService.gameStatus();
+@let items = itemService.getItems();
 
 <h1>Hero</h1>
 <p>Edit: <input (input)="updateName($event)" [value]="heroData.name" /></p>
@@ -63,6 +64,13 @@
       [style.width.%]="gameService.enemyHpPercent()"
     ></div>
   </div>
+<br />
+<h1>Items</h1>
+@for (item of items; track item.id) {
+  <p>{{ item.name }} ({{ itemTypeLabel[item.type] }}: {{ item.value }}) <button (click)="itemService.useItem(item.id)">Use</button></p>
+} @empty {
+  <p>No items in inventory.</p>
+}
 <br />
 <hr />
 <br />

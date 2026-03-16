@@ -3,6 +3,7 @@ import { HeroService } from '../../hero/services/hero';
 import { createGoblin, createHero, Enemy, GameStatus } from '../../hero/models/hero';
 import { LoggerService } from '../../../shared/services/logger';
 import { GAME_CONFIG } from '../../../shared/tokens/game-config';
+import { ItemService } from '../../item/services/item';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,7 @@ import { GAME_CONFIG } from '../../../shared/tokens/game-config';
 export class GameService {
   private readonly heroService = inject(HeroService);
   private readonly loggerService = inject(LoggerService)
+  private readonly itemService = inject(ItemService);
   private readonly config = inject(GAME_CONFIG);
 
   readonly enemiesDefeated = signal<number>(0);
@@ -37,6 +39,7 @@ export class GameService {
     this.enemiesDefeated.set(0);
     this.heroService.hero.set(createHero());
     this.enemy.set(createGoblin(this.enemiesDefeated()));
+    this.itemService.initItems();
     this.gameStatus.set(GameStatus.PLAYING);
     this.history.set([]);
   }
