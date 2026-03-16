@@ -7,20 +7,12 @@ import { LoggerService } from '../../../shared/services/logger';
   providedIn: 'root',
 })
 export class ItemService {
-  items = signal<Item[]>(createStarterItems());
-  heroservice = inject(HeroService);
-  loggerService = inject(LoggerService);
+  readonly items = signal<Item[]>(createStarterItems());
+  private readonly heroservice = inject(HeroService);
+  private readonly loggerService = inject(LoggerService);
 
   initItems() {
     this.items.set(createStarterItems());
-  }
-
-  createItem(name: string, type: ItemType, value: number): Item {
-    return createItem(name, type, value);
-  }
-
-  getItems(): Item[] {
-    return this.items();
   }
 
   addItem(item: Item) {
@@ -32,9 +24,10 @@ export class ItemService {
   }
 
   useItem(itemId: string) {
-    let removed = true
     const item = this.items().find(item => item.id === itemId); 
     if (!item) return;
+
+    let removed = true;
 
     switch (item.type) {  
       case ItemType.POTION:
@@ -47,7 +40,7 @@ export class ItemService {
         this.heroservice.updateHpMax(item.value);
         break;
       default:
-        removed
+        removed=false;
         this.loggerService.warn(`Unknown item type: ${item.type}`);
         break;
     }
