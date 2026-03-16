@@ -8,11 +8,11 @@ XP : 105 / 100
 
 ## Niveaux terminés
 
-1, 2, 3, 4, 5, 6, 7, 8, 9
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
 ## Niveau en cours
 
-Niveau 10 — Effects
+Niveau 11 — Routing
 
 ## Boss battus
 
@@ -20,4 +20,4 @@ Gobelin ⚔️
 
 ## Dernière mission validée
 
-Niveau 9 — Computed Signals
+Niveau 10 — Effects
