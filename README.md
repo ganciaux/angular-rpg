@@ -18,7 +18,7 @@ Chaque quête :
 # 🎮 Progression
 
 Niveau Angular : 5  
-XP : 105 / 100  
+XP : 115 / 100  
 
 ## Compétences
 

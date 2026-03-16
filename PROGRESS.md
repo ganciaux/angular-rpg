@@ -8,11 +8,11 @@ XP : 105 / 100
 
 ## Niveaux terminés
 
-1, 2, 3, 4, 5, 6, 7, 8
+1, 2, 3, 4, 5, 6, 7, 8, 9
 
 ## Niveau en cours
 
-Niveau 9 — Computed Signals
+Niveau 10 — Effects
 
 ## Boss battus
 
@@ -20,4 +20,4 @@ Gobelin ⚔️
 
 ## Dernière mission validée
 
-Niveau 8 — Inventaire avec Signals
+Niveau 9 — Computed Signals
