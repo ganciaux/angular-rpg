@@ -4,6 +4,7 @@ import { createGoblin, createHero, Enemy, GameStatus } from '../../hero/models/h
 import { LoggerService } from '../../../shared/services/logger';
 import { GAME_CONFIG } from '../../../shared/tokens/game-config';
 import { ItemService } from '../../item/services/item';
+import { getHpStatus } from '../../../shared/utils/hp.utils';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +21,7 @@ export class GameService {
 
   readonly enemy = signal<Enemy>(createGoblin(0));
   readonly enemyStatus = computed(() => {
-    return this.heroService.getHpStatus(this.enemy().hp, this.enemy().hpMax!);
+    return getHpStatus(this.enemy().hp, this.enemy().hpMax!);
   });
 
   readonly enemyHpPercent = computed(() => {

@@ -1,6 +1,7 @@
 import { computed, effect, inject, Injectable, signal } from '@angular/core';
 import { createHero, Hero } from '../models/hero';
 import { LoggerService } from '../../../shared/services/logger';
+import { getHpStatus } from '../../../shared/utils/hp.utils';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,7 @@ export class HeroService {
   });
 
   readonly heroStatus = computed(() => {
-    return this.getHpStatus(this.hero().hp, this.hero().hpMax);
+    return getHpStatus(this.hero().hp, this.hero().hpMax);
   });
 
   constructor() {
@@ -26,18 +27,6 @@ export class HeroService {
     const stats = this.hero().stats;
     return Object.values(stats).reduce((sum, val) => sum + val, 0) + this.hero().attack;
   });
-
-  private getHpStatus(hp: number, hpMax: number): string {
-    if (hp === 0) {
-      return '💀 Dead';
-    } else if (hp < hpMax * 0.3) {
-      return '💥 Critical';
-    } else if (hp < hpMax * 0.7) {
-      return '🤕 Injured';
-    } else {
-      return '💪 Healthy';
-    }
-  }
 
   updateName(name: string) {
     this.hero.update((hero) => ({
