@@ -1,4 +1,4 @@
-import { computed, inject, Injectable, signal } from '@angular/core';
+import { computed, effect, inject, Injectable, signal } from '@angular/core';
 import { HeroService } from '../../hero/services/hero';
 import { createGoblin, createHero, Enemy, GameStatus } from '../../hero/models/hero';
 import { LoggerService } from '../../../shared/services/logger';
@@ -11,7 +11,7 @@ import { getHpStatus } from '../../../shared/utils/hp.utils';
 })
 export class GameService {
   private readonly heroService = inject(HeroService);
-  private readonly loggerService = inject(LoggerService)
+  private readonly loggerService = inject(LoggerService);
   private readonly itemService = inject(ItemService);
   private readonly config = inject(GAME_CONFIG);
 
@@ -26,16 +26,32 @@ export class GameService {
 
   readonly enemyHpPercent = computed(() => {
     return (this.enemy().hp / this.enemy().hpMax!) * 100;
-  })
+  });
 
   readonly isReady = computed(() => {
     return this.heroService.hpPercent() >= 30 && this.itemService.items().length > 0;
   });
 
+  constructor() {
+    effect(() => {
+      this.loggerService.log(`Game status changed: ${this.gameStatus()}`);
+      if (this.gameStatus() !== GameStatus.STOP) {
+        localStorage.setItem(
+          'gameState',
+          JSON.stringify({
+            enemiesDefeated: this.enemiesDefeated(),
+            hero: this.heroService.hero(),
+            enemy: this.enemy(),
+          }),
+        );
+      }
+    });
+  }
+
   enemyTakeDamage(amount: number) {
-    this.enemy.update(enemy => ({
+    this.enemy.update((enemy) => ({
       ...enemy,
-      hp: Math.max(enemy.hp - amount, 0)
+      hp: Math.max(enemy.hp - amount, 0),
     }));
   }
 
@@ -64,7 +80,9 @@ export class GameService {
     let currentHero = this.heroService.hero();
     this.enemiesDefeated.update((count) => count + 1);
     this.enemy.set(createGoblin(this.enemiesDefeated()));
-    this.heroService.updateHp((this.heroService.hero().hpMax - currentHero.hp) * this.config.healMultiplier);
+    this.heroService.updateHp(
+      (this.heroService.hero().hpMax - currentHero.hp) * this.config.healMultiplier,
+    );
     this.heroService.updateLevel(1);
     this.gameStatus.set(GameStatus.PLAYING);
     this.history.set([]);
@@ -72,7 +90,8 @@ export class GameService {
 
   private calculateDamage(attack: number): { damage: number; isCrit: boolean } {
     const isCrit = Math.random() < this.config.critChance;
-    const damage = Math.floor(Math.random() * (attack + 1)) * (isCrit ? this.config.baseDamageMultiplier : 1);
+    const damage =
+      Math.floor(Math.random() * (attack + 1)) * (isCrit ? this.config.baseDamageMultiplier : 1);
     return { damage, isCrit };
   }
 

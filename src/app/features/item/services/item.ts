@@ -1,4 +1,4 @@
-import { computed, inject, Injectable, signal } from '@angular/core';
+import { computed, effect, inject, Injectable, signal } from '@angular/core';
 import { createItem, createStarterItems, Item, ItemType } from '../models/item';
 import { HeroService } from '../../hero/services/hero';
 import { LoggerService } from '../../../shared/services/logger';
@@ -22,6 +22,14 @@ export class ItemService {
     });
     return acc;
   });
+
+  constructor() {
+    effect(() => {
+      if (this.items().length == 0) {
+        this.loggerService.log(`Inventory is empty`);
+      }
+    });
+  }
 
   initItems() {
     this.items.set(createStarterItems());

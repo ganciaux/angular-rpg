@@ -21,6 +21,11 @@ export class HeroService {
 
   constructor() {
     effect(() => this.loggerService.log(`HP changed: ${this.hero().hp}`));
+    effect(() => {
+      if (this.hpPercent() < 30) {
+        this.loggerService.warn(`Hero is in critical condition: ${this.hero().hp}`);
+      }
+    });
   }
 
   readonly totalPower = computed(() => {
