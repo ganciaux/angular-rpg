@@ -1,18 +1,18 @@
 # Player Progress
 
-XP : 95 / 100
+XP : 105 / 100
 
 ## Niveau actuel
 
-8
+9
 
 ## Niveaux terminés
 
-1, 2, 3, 4, 5, 6, 7
+1, 2, 3, 4, 5, 6, 7, 8
 
 ## Niveau en cours
 
-Niveau 8 — Inventaire avec signals
+Niveau 9 — Computed Signals
 
 ## Boss battus
 
@@ -20,4 +20,4 @@ Gobelin ⚔️
 
 ## Dernière mission validée
 
-Niveau 7 — Dependency Injection
+Niveau 8 — Inventaire avec Signals
