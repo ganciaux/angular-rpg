@@ -42,14 +42,17 @@ export const HERO_STAT_LIST = Object.values(HeroStatLabel) as HeroStatLabel[];
 
 export const HERO_INITIAL_HP = 100;
 export const HERO_INITIAL_ATTACK = 10;
+export const HERO_INITIAL_STRENGTH = 10;
+export const HERO_INITIAL_AGILITY = 9;
+export const HERO_INITIAL_INTELLIGENCE = 8;
 export const HERO_INITIAL_LEVEL = 1;
 export const HERO_INITIAL_NAME = 'Hero';
 export const HERO_MAX_HP = 100;
 
 export const HERO_INITIAL_STATS: HeroStats = {
-  Strength: 10,
-  Agility: 9,
-  Intelligence: 8,
+  Strength: HERO_INITIAL_STRENGTH,
+  Agility: HERO_INITIAL_AGILITY,
+  Intelligence: HERO_INITIAL_INTELLIGENCE,
 };
 
 export function createHero(partial?: Partial<Hero>): Hero {

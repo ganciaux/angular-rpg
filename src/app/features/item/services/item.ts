@@ -1,4 +1,4 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { computed, inject, Injectable, signal } from '@angular/core';
 import { createItem, createStarterItems, Item, ItemType } from '../models/item';
 import { HeroService } from '../../hero/services/hero';
 import { LoggerService } from '../../../shared/services/logger';
@@ -10,6 +10,18 @@ export class ItemService {
   readonly items = signal<Item[]>(createStarterItems());
   private readonly heroservice = inject(HeroService);
   private readonly loggerService = inject(LoggerService);
+
+  readonly statInventory = computed(() => {
+    const acc:Record<ItemType, number> = {
+      [ItemType.WEAPON]: 0,
+      [ItemType.ARMOR]: 0,
+      [ItemType.POTION]: 0,
+    };
+    this.items().forEach(item => {
+      acc[item.type] += 1;
+    });
+    return acc;
+  });
 
   initItems() {
     this.items.set(createStarterItems());

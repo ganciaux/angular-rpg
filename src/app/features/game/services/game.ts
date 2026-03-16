@@ -27,6 +27,10 @@ export class GameService {
     return (this.enemy().hp / this.enemy().hpMax!) * 100;
   })
 
+  readonly isReady = computed(() => {
+    return this.heroService.hpPercent() >= 30 && this.itemService.items().length > 0;
+  });
+
   enemyTakeDamage(amount: number) {
     this.enemy.update(enemy => ({
       ...enemy,

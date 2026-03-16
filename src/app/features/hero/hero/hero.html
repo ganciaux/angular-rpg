@@ -47,6 +47,9 @@
   }
 </p>
 <p>Enemies defeated: {{ gameService.enemiesDefeated() }}</p>
+<p>Total power: {{ heroService.totalPower() }}</p>
+<p>IsReady: {{ gameService.isReady() }}</p>
+<p>Inventory: {{ itemService.statInventory()|json }}</p>
 @if (gmStatus !== gameStatus.STOP) {
   <h1>Enemy</h1>
   <p>Name: {{ enemyData.name }}</p>
