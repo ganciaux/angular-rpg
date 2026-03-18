@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeroComponent } from './features/hero/hero/hero';
+import { NavComponent } from './shared/nav/nav/nav';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeroComponent],
+  imports: [RouterOutlet, NavComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

@@ -6,10 +6,11 @@ import { GameService } from '../../game/services/game';
 import { ItemService } from '../../item/services/item';
 import { ItemTypeLabel } from '../../item/models/item';
 import { JsonPipe } from '@angular/common';
+import { ItemComponent } from "../../item/item/item";
 
 @Component({
   selector: 'app-hero',
-  imports: [FormsModule,JsonPipe],
+  imports: [FormsModule, JsonPipe, ItemComponent],
   templateUrl: './hero.html',
   styleUrl: './hero.css',
 })

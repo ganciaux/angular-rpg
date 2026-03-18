@@ -1,1 +1,8 @@
-<p>item works!</p>
+@let items = itemService.items();
+
+<h1>Items</h1>
+@for (item of items; track item.id) {
+  <p>{{ item.name }} ({{ itemTypeLabel[item.type] }}: {{ item.value }}) <button (click)="itemService.useItem(item.id)">Use</button></p>
+} @empty {
+  <p>No items in inventory.</p>
+}

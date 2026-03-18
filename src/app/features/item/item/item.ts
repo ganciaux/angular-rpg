@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ItemTypeLabel } from '../models/item';
+import { ItemService } from '../services/item';
 
 @Component({
   selector: 'app-item',
@@ -6,6 +8,7 @@ import { Component } from '@angular/core';
   templateUrl: './item.html',
   styleUrl: './item.css',
 })
-export class Item {
-
+export class ItemComponent {
+  protected readonly itemService = inject(ItemService);
+  protected readonly itemTypeLabel = ItemTypeLabel;
 }
