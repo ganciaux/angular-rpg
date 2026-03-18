@@ -31,7 +31,7 @@ XP : 125 / 100
 | Signals | ✔ |
 | Services | ✔ |
 | Dependency Injection | ✔ |
-| Routing | ⬜ |
+| Routing | ✔ |
 | RxJS | ⬜ |
 | HTTP | ⬜ |
 

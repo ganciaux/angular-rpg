@@ -1,18 +1,18 @@
 # Player Progress
 
-XP : 105 / 100
+XP : 135 / 100
 
 ## Niveau actuel
 
-9
+12
 
 ## Niveaux terminés
 
-1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
 
 ## Niveau en cours
 
-Niveau 11 — Routing
+Niveau 12 — Lazy Loading
 
 ## Boss battus
 
@@ -20,4 +20,4 @@ Gobelin ⚔️
 
 ## Dernière mission validée
 
-Niveau 10 — Effects
+Niveau 11 — Routing
