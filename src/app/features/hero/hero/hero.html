@@ -4,15 +4,9 @@
 
 <h1>Hero</h1>
 <p>Edit: <input (input)="updateName($event)" [value]="heroData.name" /></p>
-<p>Name: {{ heroData.name }}</p>
-<p>Level: {{ heroData.level }}</p>
-<p>HP: {{ heroData.hp }} / {{ heroData.hpMax }} {{ heroService.heroStatus() }} </p>
-<p>Attack: {{ heroData.attack }}</p>
+<app-character-card [name]="heroData.name" [hp]="heroData.hp" [hpMax]="heroData.hpMax" [attack]="heroData.attack" [level]="heroData.level" [status]="heroService.heroStatus()"></app-character-card>
 <button (click)="heroService.updateHp(-10)">Take Damage</button>
 <button (click)="heroService.updateHp(10)">Heal</button>
-<div class="hp-bar">
-  <div class="hp-bar-fill" [class.danger]="heroService.hpPercent() < 30" [style.width.%]="heroService.hpPercent()"></div>
-</div>
 <p>Stats:</p>
 <ul>
   @for (stat of statList; track stat) {
@@ -51,21 +45,10 @@
 <p>Inventory: {{ itemService.statInventory()|json }}</p>
 @if (gmStatus !== gameStatus.STOP) {
   <h1>Enemy</h1>
-  <p>Name: {{ enemyData.name }}</p>
-  <p>HP: {{ enemyData.hp }} {{ gameService.enemyStatus() }}</p>
-  <p>Attack: {{ enemyData.attack }}</p>
-
+  <app-character-card [name]="enemyData.name" [hp]="enemyData.hp" [hpMax]="enemyData.hpMax" [attack]="enemyData.attack" [level]="1" [status]="gameService.enemyStatus()"></app-character-card>
   @if (gmStatus === gameStatus.PLAYING && heroData.hp > 0) {
     <button (click)="gameService.attack()">Attack</button>
   }
-
-  <div class="hp-bar">
-    <div
-      class="hp-bar-fill"
-      [class.danger]="gameService.enemyHpPercent() < 30"
-      [style.width.%]="gameService.enemyHpPercent()"
-    ></div>
-  </div>
 <br />
 <app-item />
 <br />
