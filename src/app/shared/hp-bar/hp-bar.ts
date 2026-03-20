@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './hp-bar.html',
   styleUrl: './hp-bar.css',
 })
-export class HpBar {
+export class HpBarComponent {
   @Input() hp: number = 0;
   @Input() hpMax: number = 0;
 

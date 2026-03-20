@@ -7,11 +7,11 @@ import { ItemService } from '../../item/services/item';
 import { ItemTypeLabel } from '../../item/models/item';
 import { JsonPipe } from '@angular/common';
 import { ItemComponent } from "../../item/item/item";
-import { CharacterCard } from "../../../shared/character-card/character-card";
+import { CharacterCardComponent } from "../../../shared/character-card/character-card";
 
 @Component({
   selector: 'app-hero',
-  imports: [FormsModule, JsonPipe, ItemComponent, CharacterCard],
+  imports: [FormsModule, JsonPipe, ItemComponent, CharacterCardComponent],
   templateUrl: './hero.html',
   styleUrl: './hero.css',
 })
