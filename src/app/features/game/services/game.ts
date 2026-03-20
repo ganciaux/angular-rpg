@@ -5,6 +5,8 @@ import { LoggerService } from '../../../shared/services/logger';
 import { GAME_CONFIG } from '../../../shared/tokens/game-config';
 import { ItemService } from '../../item/services/item';
 import { getHpStatus } from '../../../shared/utils/hp.utils';
+import { GameStateService } from '../../../shared/services/game-state';
+import { GameState } from '../models/game';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +16,7 @@ export class GameService {
   private readonly loggerService = inject(LoggerService);
   private readonly itemService = inject(ItemService);
   private readonly config = inject(GAME_CONFIG);
+  private gameStateService = inject(GameStateService);
 
   readonly enemiesDefeated = signal<number>(0);
   readonly history = signal<string[]>([]);
@@ -36,16 +39,20 @@ export class GameService {
     effect(() => {
       this.loggerService.log(`Game status changed: ${this.gameStatus()}`);
       if (this.gameStatus() !== GameStatus.STOP) {
-        localStorage.setItem(
-          'gameState',
-          JSON.stringify({
-            enemiesDefeated: this.enemiesDefeated(),
-            hero: this.heroService.hero(),
-            enemy: this.enemy(),
-          }),
-        );
+          this.gameStateService.save(this.getGameState());
       }
     });
+  }
+
+  getGameState(): GameState {
+    return {
+      hero: this.heroService.hero(),
+      enemy: this.enemy(),
+      gameStatus: this.gameStatus(),
+      enemiesDefeated: this.enemiesDefeated(),
+      history: this.history(),
+      items: this.itemService.items(),
+    }
   }
 
   enemyTakeDamage(amount: number) {
