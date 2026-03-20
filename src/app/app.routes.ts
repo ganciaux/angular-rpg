@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { NotFoundComponent } from './shared/not-found/not-found/not-found-component';
-import { ItemComponent } from './features/item/item/item';
-import { HeroComponent } from './features/hero/hero/hero';
+import { HERO_ROUTES } from './features/hero/routes/hero.routes';
+import { ITEM_ROUTES } from './features/item/routes/item.routes';
 
 export const routes: Routes = [
     {
@@ -9,14 +9,8 @@ export const routes: Routes = [
         redirectTo: 'hero',
         pathMatch: 'full'
     },
-    {
-        path: 'hero',
-        component: HeroComponent
-    },
-    {
-        path: 'inventory',
-        component: ItemComponent
-    },
+    ...HERO_ROUTES,
+    ...ITEM_ROUTES,
     {
         path: '**',
         component: NotFoundComponent
