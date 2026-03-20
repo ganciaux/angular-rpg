@@ -1,23 +1,17 @@
-# Player Progress
-
-XP : 135 / 100
+XP : 145 / 100
 
 ## Niveau actuel
 
-12
+13
 
 ## Niveaux terminés
 
-1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
 
 ## Niveau en cours
 
-Niveau 12 — Lazy Loading
-
-## Boss battus
-
-Gobelin ⚔️
+Niveau 13 — Shared Components
 
 ## Dernière mission validée
 
-Niveau 11 — Routing
+Niveau 12 — Lazy Loading
