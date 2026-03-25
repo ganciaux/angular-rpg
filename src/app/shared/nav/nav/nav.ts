@@ -15,6 +15,7 @@ export class NavComponent {
   
   loadgame() {
     this.gameStateService.load();
+    this.gameService.loadGameState();
   }
 
   savegame() {

@@ -55,6 +55,23 @@ export class GameService {
     }
   }
 
+  loadGameState(): void {
+    const savedState = this.gameStateService.state();
+    
+    if (!savedState || !savedState.hero) {
+      this.loggerService.log('No saved game state found');
+      return;
+    }
+
+    this.loggerService.log('Restoring game state from storage');
+    this.heroService.hero.set(savedState.hero);
+    this.enemy.set(savedState.enemy);
+    this.gameStatus.set(savedState.gameStatus);
+    this.enemiesDefeated.set(savedState.enemiesDefeated);
+    this.history.set(savedState.history);
+    this.itemService.setItems(savedState.items);
+  }
+
   enemyTakeDamage(amount: number) {
     this.enemy.update((enemy) => ({
       ...enemy,

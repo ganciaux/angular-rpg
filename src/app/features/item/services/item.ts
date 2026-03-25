@@ -35,6 +35,10 @@ export class ItemService {
     this.items.set(createStarterItems());
   }
 
+  setItems(items: Item[]) {
+    this.items.set(items);
+  }
+
   addItem(item: Item) {
     this.items.update(items => [...items, item]);
   }
